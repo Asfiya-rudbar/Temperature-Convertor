@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp. Converter</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+
+        <label for="temperature">Enter temperature:</label><br>
+        <input type="number" id="temperature" placeholder="Enter temperature" required><br><br>
+
+        <label for="from">From:</label><br>
+        <select name="temp" id="from">
+            <option value="Celsius">Celsius</option>
+            <option value="Fahrenheit">Fahrenheit</option>
+        </select><br>
+
+        <label for="to">To:</label><br>
+        <select name="temp" id="to">
+            <option value="Fahrenheit">Fahrenheit</option>
+            <option value="Celsius">Celsius</option>
+        </select><br>
+        <button onclick="Converter()">Convert</button>
+
+        <h3>Converted Temperature:</h3>
+        <p id="result"></p><br><br><br>
+
+        <button onclick="refresh()">Refresh</button>
+    </div>
+
+    <script>
+        function Converter() {
+            let temp = document.getElementById("temperature").value;
+            let from = document.getElementById("from").value;
+            let to = document.getElementById("to").value;
+            let result = document.getElementById("result");
+
+            if (temp === "") {
+                result.innerHTML = "Please enter a temperature.";
+                return;
+            }
+
+            temp = parseFloat(temp); // Ensure temperature is a number
+
+            if (from === to) {
+                result.innerHTML = "No conversion needed. Same units selected.";
+            } else if (from === "Celsius" && to === "Fahrenheit") {
+                result.innerHTML = `${(temp * 9/5) + 32} °F`;
+            } else if (from === "Fahrenheit" && to === "Celsius") {
+                result.innerHTML = `${(temp - 32) * 5/9} °C`;
+            } else {
+                result.innerHTML = "Invalid conversion.";
+            }
+        }
+
+        function refresh() {
+            document.getElementById("temperature").value = "";
+            document.getElementById("from").value = "Celsius";  
+            document.getElementById("to").value = "Fahrenheit";    
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

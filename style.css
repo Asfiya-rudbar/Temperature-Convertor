@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-image: url(./math-temperature-atmosphere.jpg) ;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+h1{
+    margin-bottom: 2rem;
+}
+
+select{
+    margin-bottom: 1rem;
+}
+
+.container{ 
+    height: 30rem;
+    width: 34rem;
+    position: absolute;
+    top: 14%;
+    right: 35%;
+    border-radius: 5px;
+    color: white;
+}
+
+h3{
+    margin-top: 1rem;
+}
